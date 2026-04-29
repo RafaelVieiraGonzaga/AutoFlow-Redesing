@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+
+  --color-primary: #00FF9D;
+  --color-background: #080808;
+  --color-surface: #121417;
+  --color-surface-bright: #1c1f24;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-border-bright: rgba(255, 255, 255, 0.2);
+
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-zinc-400 font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display text-white font-medium tracking-tight;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-surface/80 backdrop-blur-xl border border-border transition-all duration-300;
+    box-shadow: inset 1px 1px 0px 0px rgba(255, 255, 255, 0.05);
+  }
+
+  .glass-card:hover {
+    @apply border-border-bright bg-surface/90;
+  }
+
+  .neon-glow {
+    box-shadow: 0 0 15px rgba(0, 255, 157, 0.2);
+  }
+
+  .neon-glow-strong {
+    box-shadow: 0 0 25px rgba(0, 255, 157, 0.4);
+  }
+
+  .neon-text-glow {
+    text-shadow: 0 0 8px rgba(0, 255, 157, 0.4);
+  }
+
+  .hud-gradient {
+    background: linear-gradient(135deg, rgba(0, 255, 157, 0.05) 0%, transparent 100%);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-zinc-800 rounded-full hover:bg-zinc-700 transition-colors;
+}
